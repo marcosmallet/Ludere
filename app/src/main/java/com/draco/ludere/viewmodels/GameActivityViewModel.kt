@@ -220,6 +220,7 @@ class GameActivityViewModel(application: Application) : AndroidViewModel(applica
             context.getString(R.string.menu_save_state),
             context.getString(R.string.menu_load_state),
             context.getString(R.string.menu_mute),
+                context.getString(R.string.exit),
             context.getString(R.string.menu_fast_forward)
         )
 
@@ -235,6 +236,7 @@ class GameActivityViewModel(application: Application) : AndroidViewModel(applica
                 context.getString(R.string.menu_mute) -> retroView?.let {
                     it.view.audioEnabled = !it.view.audioEnabled
                 }
+                context.getString(R.string.exit) -> retroView?.view?.onDestroy()
                 context.getString(R.string.menu_fast_forward) -> retroView?.let {
                     retroViewUtils?.fastForward(it)
                 }
