@@ -5,10 +5,12 @@ import android.hardware.input.InputManager
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.MotionEvent
+import android.widget.Button
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.draco.ludere.databinding.ActivityGameBinding
 import com.draco.ludere.viewmodels.GameActivityViewModel
+import com.draco.ludere.R
 
 class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
@@ -31,6 +33,11 @@ class GameActivity : AppCompatActivity() {
         viewModel.prepareMenu(this)
         viewModel.setupRetroView(this, binding.retroviewContainer)
         viewModel.setupGamePads(binding.leftContainer, binding.rightContainer)
+        var btn_menu = findViewById<Button>(R.id.button2)
+        btn_menu.setOnClickListener {
+            this.openMenu()
+        }
+
     }
 
     /**
@@ -59,6 +66,8 @@ class GameActivity : AppCompatActivity() {
         viewModel.detachRetroView(this)
         super.onDestroy()
     }
+
+    fun openMenu() = viewModel.showMenu()
 
     override fun onPause() {
         viewModel.preserveState()
