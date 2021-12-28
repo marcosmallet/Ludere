@@ -17,27 +17,10 @@ android {
         applicationId "com.draco.ludere.${configValue('config_id')}"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 1
-        versionName '1.0'
+        versionCode 2
+        versionName '2.0'
         resConfigs 'en'
-    }
-
-    signingConfigs {
-        release {
-            storeFile file("${rootProject.projectDir}/ludere.jks")
-            storePassword 'ludere'
-            keyAlias 'key0'
-            keyPassword 'ludere'
-        }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-        }
+        multiDexEnabled true
     }
 
     splits {

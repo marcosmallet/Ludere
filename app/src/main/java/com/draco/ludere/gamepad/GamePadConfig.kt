@@ -36,7 +36,8 @@ class GamePadConfig(
 
         val BUTTON_A = ButtonConfig(
             id = KeyEvent.KEYCODE_BUTTON_A,
-            label = "A"
+            label = "A",
+            visible = false
         )
 
         val BUTTON_B = ButtonConfig(
